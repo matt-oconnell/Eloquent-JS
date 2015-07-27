@@ -1,0 +1,123 @@
+* {
+  box-sizing: border-box; }
+
+body {
+  font-family: Lato;
+  font-size: 14px; }
+
+a {
+  color: #5f9da1;
+  text-decoration: none; }
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto; }
+
+.main {
+  padding: 0 23px;
+  display: table;
+  height: 90px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  width: 100%; }
+  .main img {
+    position: relative;
+    top: 7px;
+    margin-right: 15px; }
+
+.content {
+  width: 80%;
+  padding: 0 20px;
+  float: left; }
+  .content .title {
+    font-size: 22px;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: center; }
+
+.sidebar {
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  width: 20%;
+  float: left;
+  padding: 35px; }
+  .sidebar > ul {
+    list-style: none;
+    padding: 0;
+    margin: 0; }
+    .sidebar > ul > li {
+      font-size: 18px;
+      font-weight: 400;
+      padding: 0 0 10px;
+      margin: 25px 0 0px;
+      color: black; }
+      .sidebar > ul > li > ul {
+        border-top: 1px dashed rgba(0, 0, 0, 0.1);
+        display: block;
+        list-style: none;
+        margin: 10px 0 0 0;
+        padding: 10px 0 0 0;
+        font-size: 14px; }
+  .sidebar a {
+    line-height: 1.5; }
+    .sidebar a:hover {
+      color: #73afb6;
+      cursor: pointer; }
+    .sidebar a.active {
+      color: #345C5F; }
+
+.example.hidden {
+  display: none; }
+
+button {
+  background: #5f9da1;
+  border: none;
+  color: black;
+  font-size: 13px;
+  padding: 10px;
+  text-transform: uppercase;
+  margin: 10px auto;
+  display: block; }
+
+.example {
+  position: relative; }
+  .example > div {
+    position: relative;
+    transition: all 0.25s;
+    height: auto;
+    margin-top: 10px; }
+    .example > div.hidden {
+      height: 40px;
+      overflow: hidden; }
+    .example > div .overlay {
+      display: none;
+      padding: 11px;
+      color: grey; }
+      .example > div .overlay.show {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #2d2e28;
+        z-index: 2;
+        top: 0; }
+
+.toggle {
+  width: 20px;
+  height: 20px;
+  background: url(../img/minus.png);
+  background-size: 50% auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  user-select: none; }
+
+@media (max-width: 1080px) {
+  .sidebar {
+    padding: 25px;
+    width: 20%; } }
+@media (max-width: 780px) {
+  .sidebar {
+    display: none; } }
+
+/*# sourceMappingURL=style.css.map */

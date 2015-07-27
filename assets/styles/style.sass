@@ -1,0 +1,119 @@
+$color-dark-blue: #345C5F
+$color-medium-blue: #5f9da1
+$color-light-blue: #73afb6
+$color-light-grey: rgba(0, 0, 0, 0.1)
+
+*
+    box-sizing: border-box
+body
+    font-family: Lato
+    font-size: 14px
+a
+    color: #5f9da1
+    text-decoration: none
+.container
+    max-width: 1080px
+    margin: 0 auto
+.main
+    padding: 0 23px
+    display: table
+    height: 90px
+    border-bottom: 1px solid $color-light-grey
+    width: 100%
+    img
+        position: relative
+        top: 7px
+        margin-right: 15px
+
+.content
+    width: 80%
+    padding: 0 20px
+    float: left
+    .title
+        font-size: 22px
+        font-weight: 400
+        text-transform: uppercase
+        text-align: center
+.sidebar
+    border-right: 1px solid $color-light-grey
+    width: 20%
+    float: left
+    padding: 35px
+    > ul
+        list-style: none
+        padding: 0
+        margin: 0
+        > li
+            font-size: 18px
+            font-weight: 400
+            padding: 0 0 10px
+            margin: 25px 0 0px
+            color: black
+            > ul
+                border-top: 1px dashed $color-light-grey
+                display: block
+                list-style: none
+                margin: 10px 0 0 0
+                padding: 10px 0 0 0
+                font-size: 14px
+    a
+        line-height: 1.5
+        &:hover
+            color: $color-light-blue
+            cursor: pointer
+        &.active
+            color: $color-dark-blue
+.example
+    &.hidden
+        display: none
+button
+    background: $color-medium-blue
+    border: none
+    color: black
+    font-size: 13px
+    padding: 10px
+    text-transform: uppercase
+    margin: 10px auto
+    display: block
+.example
+    position: relative
+    > div
+        position: relative
+        transition: all .25s
+        height: auto
+        margin-top: 10px
+        &.hidden
+            height: 40px
+            overflow: hidden
+        .overlay
+            display: none
+            padding: 11px
+            color: grey
+            &.show
+                display: block
+                position: absolute
+                width: 100%
+                height: 100%
+                background-color: #2d2e28
+                z-index: 2
+                top: 0
+.toggle
+    width: 20px
+    height: 20px
+    background: url(../img/minus.png)
+    background-size: 50% auto
+    background-position: center
+    background-repeat: no-repeat
+    position: absolute
+    right: 10px
+    top: 10px
+    user-select: none
+
+@media (max-width: 1080px)
+    .sidebar
+        padding: 25px
+        width: 20%
+
+@media (max-width: 780px)
+    .sidebar
+        display: none
