@@ -19,7 +19,7 @@ class Example {
 		return JSON.stringify(this.data, null, 4)
 	}
 	resultFormatted() {
-		return '/* Result */\n' + JSON.stringify(this.func(), null, 4);
+		return JSON.stringify(this.func(), null, 4);
 	}
 	console() {
 		console.log(this.func());

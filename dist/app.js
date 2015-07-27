@@ -31,7 +31,7 @@ var Example = (function () {
 	};
 
 	Example.prototype.resultFormatted = function resultFormatted() {
-		return '/* Result */\n' + JSON.stringify(this.func(), null, 4);
+		return JSON.stringify(this.func(), null, 4);
 	};
 
 	Example.prototype.console = (function (_console) {
@@ -170,7 +170,7 @@ var exampleJS = {
 };
 
 var exampleText = {
-	'Intro': 'This is a running collection of marginalia related to the book Eloquent Javascript (2nd Edition) by Marijn Haverbeke. It was built with the intent of clarifying and solidifying some of the more interesting and/or obscure elements of the Javascript language.',
+	'Intro': 'This is a running collection of notes related to the book Eloquent Javascript (2nd Edition) by Marijn Haverbeke. It was built with the intent of clarifying and solidifying some of the more interesting and/or obscure elements of the Javascript language.',
 	'NaN': 'something about this thing here.... '
 };
 
@@ -210,6 +210,7 @@ $(document).ready(function () {
 			title.text(name);
 			desc.text(ex);
 		}
+		if ($('.sidebar').hasClass('show')) $('.sidebar, .sidebar-overlay').removeClass('show');
 	});
 
 	consoleButtton.click(function () {
@@ -224,6 +225,10 @@ $(document).ready(function () {
 		} else {
 			_.next().toggleClass('show');
 		}
+	});
+
+	$('.hamburger-nav, .sidebar-overlay').click(function () {
+		$('.sidebar, .sidebar-overlay').toggleClass('show');
 	});
 });
 
