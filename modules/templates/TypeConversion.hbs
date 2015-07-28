@@ -1,0 +1,71 @@
+<p>JavaScript's automatic type conversion or <em>type coersion</em> can be tricky. When a statement expects a value of a certain type and the expression passed to it does not return one of that type, JavaScript will attempt to convert the given expression into the type it is looking for.</p>
+
+<pre>
+var e = {ex:1};
+if(e) {
+    // converted from an object to boolean
+}
+</pre>
+
+<p>Usually, this is helpful, but sometimes it can lead to unexpected results. For example, the + operator will always concatenate values if one is a string, otherwise it will add two values together. In the example below, the number 1 is converted to a string.</p>
+<pre>
+'99' + 1
+// '991'
+</pre>
+
+<p>But, the - operator will trigger a type conversion when applied to a string or strings, attempting to convert them to numeric values.</p>
+<pre>
+'99' - '1'
+// 98
+</pre>
+
+<p><code class="language-javascript">true</code> converts to 1 when expected in an arithmetic operation and <code>null</code> converts to 0</p>
+<pre>
+true + 2
+// 3
+null * 1
+// 0
+</pre>
+
+<p>Logical operators (<code>||</code> or <code>&&</code>) work on all types. They <em>expect</em> boolean values though, so when presented with a non-boolean, they will convert it. If it converts to true, they return the <em>original</em> value. For this reason, logical operators are extremely useful in allowing for fallback values and null checks.</p>
+<p>The below code is an example of 'short-circuiting' an evaluation. Since a is <code>null</code>, we fall back to the secondary value. But, if a had evaluated to <code>true</code>, then the second expression would <em>never</em> be evaluated.</p>
+<pre>
+var a = null
+var b = a || 'fallback value'
+b // 'fallback value'
+</pre>
+<p>Below, we are using the logical operator to perform a null check on a value we receieved for an imaginary API. If we tried to access c.inner.inner without the null check and <code>c</code> or <code>c.inner</code> did not exist, we would get a "Cannot read property 'inner' of undefined error." But, since we performed the check, the worst that can happen is the <code>if</code> conditional returns false and the program moves right along.</p>
+<pre>
+var c = getSomeAPIDataInJSON();
+if(c && c.inner && c.inner.inner) {
+    console.log(c.inner.inner);
+}
+</pre>
+
+
+
+<p><code>==</code> checks for equality regardless of the type. Type conversion is performed here.</p>
+<p><code>===</code> checks for equality <em>and</em> matching type. It actually runs faster since we are avoiding a type conversion here. This should be used when possible.</p>
+
+<pre>
+null == 0
+// false
+null == ''
+// false
+null == false
+// false
+null == undefined
+// true
+null === undefined
+// false
+</pre>
+
+<p>What counts as false?</p>
+<pre>
+'' == false
+NaN == false
+0 == false
+undefined == false
+// all true
+</pre>
+

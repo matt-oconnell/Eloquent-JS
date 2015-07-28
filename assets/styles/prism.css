@@ -4,7 +4,7 @@ pre[class*="language-"] {
 	line-height: 1.5;
     font-size: 12px;
     color: white;
-	letter-spacing: 1px;
+	letter-spacing: 1.2px;
 	direction: ltr;
 	/* font-family: Consolas, Monaco, 'Andale Mono', monospace; */
 	font-family: lato;
@@ -62,10 +62,8 @@ code[class*="language-"]::selection, code[class*="language-"] ::selection {
 
 /* Inline code */
 :not(pre) > code[class*="language-"] {
-	border-radius: .3em;
-	border: .13em solid hsl(0, 0%, 33%); /* #545454 */
 	box-shadow: 1px 1px .3em -.1em black inset;
-	padding: .15em .2em .05em;
+    padding: .2em .4em .15em;
 }
 
 .token.comment,

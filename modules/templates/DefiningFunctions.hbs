@@ -1,0 +1,31 @@
+<p>There are several ways to define a function in JavaScript. We'll take a look at a few here.</p>
+
+<p>Function Declaration:</p>
+<pre>
+function example() {
+    return true
+}
+</pre>
+<p>Function Expression:</p>
+<pre>
+var example = function() {
+    return true;
+}
+</pre>
+
+<p>Both examples do pretty much the same thing with one subtle difference. The function declaration is not included in the regular control flow. They are <em>hoisted</em> to the top of whatever scope they reside in. This means you can call the function before it's written in your code.</p>
+<pre>
+ex1();
+// 1
+function ex1() {
+    return 1;
+}
+
+ex2();
+// Uncaught TypeError: ex2 is not a function
+var ex2 = function() {
+    return 2;
+}
+</pre>
+
+<p>What's happening here? The variable <code>ex2</code> <em>is</em> actually getting hoisted to the top of it's scope, similarly to a function. <em>But</em>, the contents of the variable do <em>not</em> get hoisted. The environment is recognizing <code>ex2</code> as an undefined value.</p>

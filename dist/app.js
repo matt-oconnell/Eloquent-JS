@@ -169,46 +169,42 @@ var exampleJS = {
 	'Reduce': _functionalReduce.Reduce
 };
 
-var exampleText = {
-	'Intro': 'This is a running collection of notes related to the book Eloquent Javascript (2nd Edition) by Marijn Haverbeke. It was built with the intent of clarifying and solidifying some of the more interesting and/or obscure elements of the Javascript language.',
-	'NaN': 'something about this thing here.... '
-};
-
 $(document).ready(function () {
-
-	var sidebarLink = $('.sidebar a'),
+	var c = $('.content'),
+	    title = c.find('.title'),
+	    desc = c.find('.description'),
+	    dataCode = c.find('.data-code pre'),
+	    mainCode = c.find('.main-code pre'),
+	    resultCode = c.find('.result-code pre'),
+	    example = c.find('.example'),
+	    sidebarLink = $('.sidebar a'),
 	    consoleButtton = $('.console'),
 	    ex;
 
+	desc.html(getTemplate('Intro'));
+
 	sidebarLink.click(function () {
 		var _ = $(this),
-		    c = $('.content'),
 		    id = _.text().replace(/\s/g, ''),
 		    type = _.attr('type'),
-		    name = _.text(),
-		    title = c.find('.title'),
-		    desc = c.find('.description'),
-		    dataCode = c.find('.data-code pre'),
-		    mainCode = c.find('.main-code pre'),
-		    resultCode = c.find('.result-code pre'),
-		    example = c.find('.example');
+		    name = _.text();
 
 		if (type == 'js') {
-			ex = exampleJS[id];
+			var ex = exampleJS[id];
 			title.text(name);
 			desc.text(ex.description);
 			dataCode.text('var data = ' + ex.dataFormatted());
 			mainCode.text(ex.formatted);
 			resultCode.text(ex.resultFormatted());
 			example.show();
-			for (var i = 0; i < 3; i++) {
-				Prism.highlightElement($('.language-javascript')[i]);
-			}
+			for (var i = 0; i < 3; i++) Prism.highlightElement($('.language-javascript')[i]);
 		} else {
 			example.hide();
-			ex = exampleText[id];
 			title.text(name);
-			desc.text(ex);
+			var template = getTemplate(id);
+			desc.html(template);
+			$('pre, code').addClass('language-javascript');
+			for (var k = 0; k < $('.language-javascript').length; k++) Prism.highlightElement($('.language-javascript')[k]);
 		}
 		if ($('.sidebar').hasClass('show')) $('.sidebar, .sidebar-overlay').removeClass('show');
 	});
@@ -231,5 +227,10 @@ $(document).ready(function () {
 		$('.sidebar, .sidebar-overlay').toggleClass('show');
 	});
 });
+
+function getTemplate(id) {
+	var path = './modules/templates/' + id + '.hbs';
+	return JST[path]({});
+}
 
 },{"./functional/Filter":3,"./functional/Map":4,"./functional/Reduce":5}]},{},[1,6,2,3,4,5]);
