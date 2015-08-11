@@ -1,0 +1,30 @@
+<h3>Singles</h3>
+
+<pre>function LinkedList() {
+    this._head = null;
+}</pre>
+
+<pre>
+LinkedList.prototype = {
+    add: function (data){
+        //create a new node, place data in
+        var node = {
+                data: data,
+                next: null,
+            },
+            current;
+        if (this._head === null){
+            this._head = node;
+        } else {
+            current = this._head;
+
+            while(current.next){
+                current = current.next;
+            }
+
+            current.next = node;
+        }
+    },
+};
+</pre>
+hi
