@@ -151,7 +151,8 @@ button {
     top: 0;
     z-index: 3;
     height: 100%;
-    overflow: scroll; }
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch; }
     .sidebar.show {
       left: 0; }
     .sidebar a {
