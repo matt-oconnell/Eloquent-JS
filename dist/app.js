@@ -154,6 +154,26 @@ var Reduce = new _Example.Example(func, data);
 exports.Reduce = Reduce;
 
 },{"./../Example":1,"./../data/cars":2}],6:[function(require,module,exports){
+'use strict';
+
+missingNo = [1, 2, 3, 4, 5, 7].forEach(function (el, i) {
+	console.log('running');
+	if (el != i + 1) console.log(i + 1);
+	return i + 1;
+});
+
+var nums = [1, 2, 3, 4, 5, 7];
+var sum = nums.length * (nums.length + 1) / 2;
+
+var string = 'some string';
+var newString3 = '';
+for (var i = string.length; i--; i > -1) {
+	console.log(i);
+	newString3 += string[i];
+}
+console.log(newString3);
+
+},{}],7:[function(require,module,exports){
 /* Imports */
 'use strict';
 
@@ -170,6 +190,7 @@ var exampleJS = {
 };
 
 $(document).ready(function () {
+	FastClick.attach(document.body);
 	var c = $('.content'),
 	    title = c.find('.title'),
 	    desc = c.find('.description'),
@@ -233,4 +254,4 @@ function getTemplate(id) {
 	return JST[path]({});
 }
 
-},{"./functional/Filter":3,"./functional/Map":4,"./functional/Reduce":5}]},{},[1,6,2,3,4,5]);
+},{"./functional/Filter":3,"./functional/Map":4,"./functional/Reduce":5}]},{},[1,7,2,3,4,5,6]);

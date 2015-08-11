@@ -10,6 +10,7 @@ var exampleJS = {
 };
 
 $(document).ready(function() {
+	FastClick.attach(document.body);
 	var c = $('.content'),
 		title = c.find('.title'),
 		desc = c.find('.description'),
